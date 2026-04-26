@@ -1,0 +1,37 @@
+<svg width="460" height="108" viewBox="0 0 460 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="plate" x1="10" y1="10" x2="94" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#171D26"/>
+      <stop offset="1" stop-color="#080B10"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="6" y1="6" x2="94" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3F4F6"/>
+      <stop offset="1" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="strike" x1="18" y1="14" x2="74" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F87171"/>
+      <stop offset="1" stop-color="#DC2626"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="112" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(6,6)">
+    <rect x="0" y="0" width="94" height="94" rx="12" fill="url(#plate)" stroke="url(#edge)" stroke-width="2"/>
+    <path d="M12 75L54 17H74L32 75H12Z" fill="url(#strike)"/>
+    <path d="M26 77L68 19" stroke="#FDE68A" stroke-width="4" stroke-linecap="round" opacity="0.92"/>
+    <path d="M20 31H88" stroke="#111827" stroke-width="7" opacity="0.8"/>
+    <path d="M10 53H79" stroke="#111827" stroke-width="7" opacity="0.68"/>
+    <g filter="url(#glow)">
+      <path d="M24 77L72 17" stroke="#EF4444" stroke-width="2"/>
+    </g>
+  </g>
+
+  <g transform="translate(120,22)">
+    <text x="0" y="36" fill="#F9FAFB" font-family="Space Grotesk, Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="3">AI FIT</text>
+    <text x="2" y="64" fill="#CBD5E1" font-family="JetBrains Mono, Segoe UI, Arial, monospace" font-size="14" font-weight="700" letter-spacing="4">BRUTAL TRACKER</text>
+    <rect x="0" y="70" width="226" height="6" rx="3" fill="#111827"/>
+    <rect x="0" y="70" width="146" height="6" rx="3" fill="#EF4444"/>
+  </g>
+</svg>

@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* DEFAULT = DARK MODE */
+  :root {
+    --bg-primary: 9 9 11;
+    --bg-secondary: 24 24 27;
+    --text-primary: 255 255 255;
+    --text-secondary: 161 161 170;
+  }
+
+  /* LIGHT MODE */
+  .light {
+    --bg-primary: 255 255 255;
+    --bg-secondary: 243 244 246;
+    --text-primary: 17 24 39;
+    --text-secondary: 75 85 99;
+  }
+
+  /* DARK MODE */
+  .dark {
+    --bg-primary: 9 9 11;
+    --bg-secondary: 24 24 27;
+    --text-primary: 255 255 255;
+    --text-secondary: 161 161 170;
+  }
+  
+  /* OPTIMIZATION: Remove body transition (main cause of lag) */
+  body {
+    background-color: rgb(var(--bg-primary));
+    color: rgb(var(--text-primary));
+    /* REMOVED: transition: background-color 0.3s ease, color 0.3s ease; */
+    
+    /* ADDED: Performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* OPTIMIZATION: Hardware acceleration for all elements */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* OPTIMIZATION: GPU acceleration class */
+.gpu {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  will-change: transform;
+}
+
+/* OPTIMIZATION: Smooth scrolling with GPU */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* OPTIMIZATION: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar styling - OPTIMIZED */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* OPTIMIZATION: Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* OPTIMIZATION: Animation keyframes moved to CSS */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* OPTIMIZATION: Animation classes */
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
